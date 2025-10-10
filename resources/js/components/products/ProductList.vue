@@ -8,7 +8,7 @@
     </section>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import ProductCard from './ProductCard.vue'
 
 defineProps({
@@ -20,6 +20,6 @@ defineProps({
 .plp {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(min(288px, 100%), 1fr));
-    gap: 20px;
+    gap: 1.25rem;
 }
 </style>

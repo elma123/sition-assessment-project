@@ -43,7 +43,7 @@
     </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 defineProps({
     product: Object
 })
@@ -53,7 +53,7 @@ defineProps({
 .product {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 0.75rem;
 }
 .product__image-wrapper {
     aspect-ratio: 1;
@@ -73,7 +73,7 @@ defineProps({
 }
 .product__price-wrapper {
     display: flex;
-    gap: 16px;
+    gap: 1rem;
 }
 .product__price--discount {
     font-weight: 300;

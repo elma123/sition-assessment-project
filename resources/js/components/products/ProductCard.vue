@@ -23,10 +23,10 @@
         <!-- <div v-if="product.properties">
             <h3>Properties</h3>
             <div
-                v-for="(property, id) in product.properties"
-                :key="id"
+                v-for="(property, index) in product.properties"
+                :key="index"
             >
-                <div><b>{{ id }}</b></div>
+                <div><b>{{ index }}</b></div>
                 <div v-for="value in property">
                     <div>{{ value }}</div>
                 </div>
@@ -36,7 +36,9 @@
         <!-- <div v-if="product.categories">
             <h3>Categories</h3>
             <div
-                v-for="category in product.categories">
+                v-for="(category, index) in product.categories"
+                :key="index"
+            >
                 <div>{{ category }}</div>
             </div>
         </div> -->

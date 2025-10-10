@@ -4,7 +4,7 @@
         <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
     </Head>
     <div class="plp-page-background">
-        <header class="header">
+        <header class="header fixed">
             <Navigation />
             <ShoppingCart />
         </header>
@@ -50,6 +50,10 @@ onMounted(async () => {
     padding-inline: 1.25rem;
     background: #FFFFFF;
     border-bottom: 1px solid #E4E4E4;
+}
+.header.fixed {
+    position: sticky;
+    inset: 0 0 auto 0;
 }
 .plp-page {
     max-width: 1040px;

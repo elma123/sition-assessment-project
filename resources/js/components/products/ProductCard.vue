@@ -46,9 +46,17 @@
 </template>
 
 <script setup lang="ts">
-defineProps({
-    product: Object
-})
+interface Product {
+    image: string
+    title: string
+    brand: string
+    price: number
+    discountedPrice?: number
+}
+
+const props = defineProps<{
+    product: Product
+}>();
 </script>
 
 <style scoped>

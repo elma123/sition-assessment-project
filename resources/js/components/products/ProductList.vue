@@ -11,9 +11,17 @@
 <script setup lang="ts">
 import ProductCard from './ProductCard.vue'
 
-defineProps({
-    products: Array
-})
+interface Product {
+    image: string
+    title: string
+    brand: string
+    price: number
+    discountedPrice?: number
+}
+
+const props = defineProps<{
+    products: Product[]
+}>();
 </script>
 
 <style scoped>

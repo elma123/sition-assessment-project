@@ -61,4 +61,9 @@ onMounted(async () => {
     padding: 1rem;
     background: #FFFFFF;
 }
+@media (max-width: 768px) {
+    .header {
+        background: #FC969C;
+    }
+}
 </style>

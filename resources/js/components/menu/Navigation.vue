@@ -124,4 +124,14 @@ onMounted(() => {
     cursor: grabbing;
     cursor: -webkit-grabbing;
 }
+@media (max-width: 768px) {
+    .navigation__link:hover,
+    .navigation__link.active
+    {
+        color: #FFFFFF;
+    }
+    .navigation__link.active {
+        border-bottom: 3px solid #FFFFFF;
+    }
+}
 </style>

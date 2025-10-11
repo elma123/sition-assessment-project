@@ -12,6 +12,7 @@
 import ProductCard from './ProductCard.vue'
 
 interface Product {
+    id: string,
     image: string
     title: string
     brand: string

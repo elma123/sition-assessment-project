@@ -22,10 +22,10 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
 
-/* To track changes in the product categories and update menu items */
+// To track changes in the product categories and update menu items
 const categories = ref<string[]>([])
 
-/* Fetch product data only after the component is fully rendered */
+// Fetch product data only after the component is fully rendered
 onMounted(async () => {
     try {
         const res = await fetch('/proxy/product/categories');
@@ -36,12 +36,12 @@ onMounted(async () => {
     }
 });
 
-/* Static navigation items */
+// Static navigation items
 const items = ref<string[]>([
     'Sale', 'Blog', 'Brands', 'Account'
 ]);
 
-/* Make navigation scrollable on desktop and mobile, after the component is fully rendered */
+// Make navigation scrollable on desktop and mobile, after the component is fully rendered
 const scrollContainer = ref<HTMLElement | null>(null);
 
 onMounted(() => {

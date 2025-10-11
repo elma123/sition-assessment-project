@@ -2,30 +2,37 @@
 
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use Illuminate\Support\Str;
+use App\Support\ProductService;
 
+// Route to plp
 Route::get('/', function () {
     return Inertia::render('Plp');
 })->name('plp');
 
-/* Get all product data */
+// Get all product data
 Route::get('/proxy/products', function () {
-    $response = Http::get('https://assessement.sition.cloud/products.json');
-    return $response->json();
+    return response()->json([
+        'products' => ProductService::all(),
+    ]);
 });
 
-/* Get all product categories */
+// Get all product categories
 Route::get('/proxy/product/categories', function () {
-    $response = Http::get('https://assessement.sition.cloud/products.json');
-    $data = $response->json();
-
-    $categories = collect($data['products'] ?? [])
-        ->pluck('categories')             // pick only the 'category' field
-        ->flatten()                       // merge all arrays into one flat array
-        ->filter()                        // remove null/empty values
-        ->unique()                        // remove duplicates
-        ->values();                       // reindex the collection
-
     return response()->json([
-        'categories' => $categories,
+        'categories' => ProductService::categories(),
+    ]);
+});
+
+// Route to pdp
+Route::get('/products/{id}', function ($id) {
+    $product = ProductService::find($id);
+
+    if (!$product) {
+        abort(404, 'Product not found');
+    }
+
+    return Inertia::render('Pdp', [
+        'product' => $product,
     ]);
 });

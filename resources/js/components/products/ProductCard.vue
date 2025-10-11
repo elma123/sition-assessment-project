@@ -1,4 +1,5 @@
 <template>
+    <Link :href="`/products/${product.id}`">
     <div class="product">
         <div v-if="product.image" class="product__image-wrapper">
             <img
@@ -43,10 +44,14 @@
             </div>
         </div> -->
     </div>
+    </Link>
 </template>
 
 <script setup lang="ts">
+import { Link } from '@inertiajs/vue3';
+
 interface Product {
+    id: string,
     image: string
     title: string
     brand: string

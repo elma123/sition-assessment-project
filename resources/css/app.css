@@ -7,6 +7,15 @@
     --font-sans: Instrument Sans, ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 }
 
+:root {
+    --white: #fff;
+    --base: #F9F9F9;
+    --highlight: #ff7a82;
+    --border-light: #E4E4E4;
+    --white-transparant-80: #FFFFFFCC;
+    --alert: #FF3A46;
+}
+
 html, body {
     height: 100%;
     margin: 0;
@@ -20,4 +29,8 @@ body {
     font-family: "Roboto", sans-serif;
     font-weight: 300;
     color: #000000;
+}
+
+h1 {
+    font-size: 1.7rem;
 }

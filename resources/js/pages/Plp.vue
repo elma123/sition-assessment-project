@@ -1,7 +1,6 @@
 <template>
     <BaseLayout>
         <ProductList :products="products" />
-        {{ category }}
     </BaseLayout>
 </template>
 

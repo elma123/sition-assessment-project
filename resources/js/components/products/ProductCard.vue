@@ -16,12 +16,7 @@
             <h2 v-if="product.title" class="product__title"><strong>{{ product.title }}</strong></h2>
         </div>
 
-        <div class="product__price-wrapper">
-            <span v-if="product.discountedPrice" class="product__price product__price--discount">&euro; {{ product.discountedPrice }}</span>
-            <span v-if="product.price" class="product__price product__price--regular">&euro; {{ product.price }}</span>
-        </div>
-
-
+        <Price :price="product.price" :sale="product.discountedPrice"></Price>
 
         <!-- <div v-if="product.categories">
             <h3>Categories</h3>
@@ -38,6 +33,7 @@
 
 <script setup lang="ts">
 import { Link } from '@inertiajs/vue3';
+import Price from './Price.vue';
 
 interface Product {
     id: string,
@@ -62,7 +58,7 @@ defineProps<{
 .product__image-wrapper {
     aspect-ratio: 1;
     overflow: hidden;
-    background: #F9F9F9;
+    background: var(--base);
 }
 .product__image {
     width: 100%;
@@ -85,6 +81,6 @@ defineProps<{
 }
 .product__price--regular {
     font-weight: 400;
-    color: #FF3A46;
+    color: var(--alert);
 }
 </style>

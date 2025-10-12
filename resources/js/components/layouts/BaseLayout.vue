@@ -22,35 +22,38 @@ import ShoppingCart from '../menu/ShoppingCart.vue';
 
 <style scoped>
 .page-wrapper {
-    display: grid;
-    grid-template-rows: auto 1fr;
+    display: flex;
+    flex-direction: column;
     min-height: 100vh;
-    background: linear-gradient(#FFFFFFCC, #FFFFFFCC), url('@/assets/images/background.jpg') center / cover no-repeat;
+    background: linear-gradient(var(--white-transparant-80), var(--white-transparant-80)), url('@/assets/images/background.jpg') center / cover no-repeat;
 }
 .header {
     display: flex;
     justify-content: space-between;
     gap: 1rem;
+    width: 100%;
     max-width: 1040px;
     margin: 0 auto;
     padding-inline: 1.25rem;
-    background: #FFFFFF;
-    border-bottom: 1px solid #E4E4E4;
+    background: var(--white);
+    border-bottom: 1px solid var(--border-light);
 }
 .header.fixed {
     position: sticky;
     inset: 0 0 auto 0;
 }
 .page-content {
+    display: grid;
+    flex: 1;
     width: 100%;
     max-width: 1040px;
     margin: 0 auto;
     padding: 1rem;
-    background: #FFFFFF;
+    background: var(--white);
 }
 @media (max-width: 768px) {
     .header {
-        background: #FC969C;
+        background: var(--highlight);
     }
 }
 </style>

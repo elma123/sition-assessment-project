@@ -15,7 +15,7 @@
         box-shadow: none;
     }
     .shopping-cart__icon {
-        color: #FF7A82;
+        color: var(--highlight);
     }
     .shopping-cart__text {
         font-size: 0.75rem;

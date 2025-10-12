@@ -1,6 +1,7 @@
 <template>
     <BaseLayout>
         <ProductList :products="products" />
+        {{ category }}
     </BaseLayout>
 </template>
 
@@ -12,10 +13,14 @@ import ProductList from '../components/products/ProductList.vue';
 // To track changes in the product data and update product list
 const products = ref([]);
 
+const props = defineProps<{
+    category: String
+}>();
+
 // Fetch product data only after the component is fully rendered
 onMounted(async () => {
     try {
-        const res = await fetch('/proxy/products');
+        const res = await fetch(`/proxy/products/${props.category}`);
         const data = await res.json();
         products.value = data.products || [];
     } catch (error) {

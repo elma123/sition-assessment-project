@@ -5,9 +5,25 @@ use Inertia\Inertia;
 use Illuminate\Support\Str;
 use App\Support\ProductService;
 
-// Route to plp
+// Routes to plp
 Route::get('/', function () {
     return Inertia::render('Plp');
+})->name('plp');
+
+Route::get('/sale', function () {
+    return Inertia::render('Plp');
+})->name('plp');
+
+Route::get('/{category}', function ($category) {
+    $categories = ProductService::categories(); // Collection
+
+    if (!$categories->contains($category)) {
+        abort(404, 'Category not found');
+    }
+
+    return Inertia::render('Plp', [
+        'category' => $category,
+    ]);
 })->name('plp');
 
 // Get all product data
@@ -34,5 +50,17 @@ Route::get('/products/{id}', function ($id) {
 
     return Inertia::render('Pdp', [
         'product' => $product,
+    ]);
+});
+
+Route::get('/proxy/products/{category}', function ($category) {
+    $categories = ProductService::categories(); // Collection
+
+    if (!$categories->contains($category)) {
+        abort(404, 'Category not found');
+    }
+
+    return response()->json([
+        'products' => ProductService::findByCategory($category),
     ]);
 });

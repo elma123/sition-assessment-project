@@ -28,7 +28,7 @@ const props = defineProps<{
 <style scoped>
 .plp {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(288px, 100%), 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(min(288px, 100%), 1fr));
     gap: 1.25rem;
 }
 </style>

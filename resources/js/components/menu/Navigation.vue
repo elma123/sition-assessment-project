@@ -6,14 +6,22 @@
                 :key="index"
                 class="navigation__item"
             >
-                <a :href="`#${category}`" class="navigation__link" :class="{ 'active': category === 'new' }">{{ category }}</a>
+                <a
+                    :href="`/${category}/`"
+                    class="navigation__link"
+                    :class="{
+                        active: $page.url.replace(/\/$/, '') === `/${category}`
+                    }"
+                >
+                    {{ category }}
+                </a>
             </li>
             <li
                 v-for="(item, index) in items"
                 :key="index"
                 class="navigation__item"
             >
-                <a :href="`#${item.toLowerCase()}`" class="navigation__link">{{ item }}</a>
+                <a :href="`/${item.toLowerCase()}`" class="navigation__link">{{ item }}</a>
             </li>
         </ul>
     </nav>

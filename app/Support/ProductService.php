@@ -71,4 +71,23 @@ class ProductService
                 ->values();
         });
     }
+
+    /**
+     * Get all products per category
+     *
+     * @return array
+     */
+    public static function findByCategory(string $category): array
+    {
+        $products = self::all();
+        $matchedProducts = [];
+
+        foreach ($products as $product) {
+            if (!empty($product['categories']) && in_array($category, $product['categories'])) {
+                $matchedProducts[] = $product;
+            }
+        }
+
+        return $matchedProducts;
+    }
 }

@@ -4,6 +4,7 @@
             v-for="(product, index) in products"
             :key="index"
             :product="product"
+            :label="label"
         />
     </section>
 </template>
@@ -21,7 +22,8 @@ interface Product {
 }
 
 defineProps<{
-    products: Product[]
+    products: Product[],
+    label: String
 }>();
 </script>
 

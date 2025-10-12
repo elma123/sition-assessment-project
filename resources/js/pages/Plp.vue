@@ -1,6 +1,6 @@
 <template>
     <BaseLayout>
-        <ProductList :products="products" />
+        <ProductList :products="products" :label="props.category"/>
     </BaseLayout>
 </template>
 
@@ -13,7 +13,8 @@ import ProductList from '../components/products/ProductList.vue';
 const products = ref([]);
 
 const props = defineProps<{
-    category: String
+    category: String,
+    label: String
 }>();
 
 // Fetch product data only after the component is fully rendered

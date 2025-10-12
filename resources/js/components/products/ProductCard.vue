@@ -9,6 +9,7 @@
                 height="323"
                 class="product__image"
             >
+            <div v-if="label === 'new'" class="product__label">{{ label }}</div>
         </div>
 
         <div>
@@ -17,16 +18,6 @@
         </div>
 
         <Price :price="product.price" :sale="product.discountedPrice"></Price>
-
-        <!-- <div v-if="product.categories">
-            <h3>Categories</h3>
-            <div
-                v-for="(category, index) in product.categories"
-                :key="index"
-            >
-                <div>{{ category }}</div>
-            </div>
-        </div> -->
     </div>
     </Link>
 </template>
@@ -45,7 +36,8 @@ interface Product {
 }
 
 defineProps<{
-    product: Product
+    product: Product,
+    label: String
 }>();
 </script>
 
@@ -56,6 +48,7 @@ defineProps<{
     gap: 0.75rem;
 }
 .product__image-wrapper {
+    position: relative;
     aspect-ratio: 1;
     overflow: hidden;
     background: var(--base);
@@ -64,6 +57,14 @@ defineProps<{
     width: 100%;
     height: 100%;
     object-fit: contain;
+}
+.product__label {
+    position: absolute;
+    inset: 0.5rem auto auto 0.5rem;
+    padding: 0.3rem;
+    border-radius: 4px;
+    line-height: 1;
+    background: var(--secondary);
 }
 .product__brand {
     font-weight: 300;

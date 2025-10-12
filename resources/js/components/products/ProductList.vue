@@ -20,7 +20,7 @@ interface Product {
     discountedPrice?: number
 }
 
-const props = defineProps<{
+defineProps<{
     products: Product[]
 }>();
 </script>

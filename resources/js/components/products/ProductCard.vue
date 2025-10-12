@@ -21,18 +21,7 @@
             <span v-if="product.price" class="product__price product__price--regular">&euro; {{ product.price }}</span>
         </div>
 
-        <!-- <div v-if="product.properties">
-            <h3>Properties</h3>
-            <div
-                v-for="(property, index) in product.properties"
-                :key="index"
-            >
-                <div><b>{{ index }}</b></div>
-                <div v-for="value in property">
-                    <div>{{ value }}</div>
-                </div>
-            </div>
-        </div> -->
+
 
         <!-- <div v-if="product.categories">
             <h3>Categories</h3>
@@ -59,7 +48,7 @@ interface Product {
     discountedPrice?: number
 }
 
-const props = defineProps<{
+defineProps<{
     product: Product
 }>();
 </script>

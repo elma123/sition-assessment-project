@@ -5,10 +5,35 @@ use Inertia\Inertia;
 use Illuminate\Support\Str;
 use App\Support\ProductService;
 
-// Routes to plp
+/**
+ * Create Routes
+ */
+
+// Standard
 Route::get('/', function () {
     return Inertia::render('Home');
 })->name('home');
+
+Route::get('/blog', function () {
+    return Inertia::render('Standard', [
+        'title' => 'Blog',
+    ]);
+})->name('blog');
+
+Route::get('/brands', function () {
+    return Inertia::render('Standard', [
+        'title' => 'Brands',
+    ]);
+})->name('brands');
+
+Route::get('/account', function () {
+    return Inertia::render('Standard', [
+        'title' => 'Account',
+    ]);
+})->name('account');
+
+// PLP
+Route::inertia('/sale', 'Plp');
 
 Route::get('/{category}', function ($category) {
     $categories = ProductService::categories(); // Collection
@@ -21,22 +46,6 @@ Route::get('/{category}', function ($category) {
         'category' => $category,
     ]);
 })->name('category');
-
-Route::get('/sale', function () {
-    return Inertia::render('Plp');
-})->name('sale');
-
-Route::get('/blog', function () {
-    return Inertia::render('Standard');
-})->name('blog');
-
-Route::get('/brands', function () {
-    return Inertia::render('Standard');
-})->name('brands');
-
-Route::get('/account', function () {
-    return Inertia::render('Standard');
-})->name('account');
 
 // Get all product data
 Route::get('/proxy/products', function () {

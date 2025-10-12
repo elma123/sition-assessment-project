@@ -120,10 +120,10 @@ onMounted(() => {
 .navigation__link:hover,
 .navigation__link.active
 {
-    color: var(--highlight);
+    color: var(--secondary);
 }
 .navigation__link.active {
-    border-bottom: 3px solid var(--highlight);
+    border-bottom: 3px solid var(--secondary);
 }
 .scroll-container {
     cursor: grab;

@@ -16,15 +16,40 @@
 
                     <Price :price="product.price" :sale="product.discountedPrice" large></Price>
 
-                    <div v-if="product.properties">
-                        <h3>Properties</h3>
-                        <div v-for="(property, index) in product.properties" :key="index">
-                            <div><b>{{ index }}</b></div>
-                            <div v-for="(value, index) in property" :key="index">
-                                <div>{{ value }}</div>
+                    <div v-if="product.properties" class="pdp__properties">
+                        <div
+                            v-for="(property, type) in product.properties" :key="type"
+                            class="pdp__property"
+                        >
+                            <div class="pdp__property-title">
+                                <b>{{ capitalize(type) }}</b>
+                            </div>
+                            <div
+                                v-for="(value, index) in property"
+                                :key="`${type}-${index}`"
+                                class="pdp__property-value"
+                            >
+                                <!-- Color swatch -->
+                                <div
+                                    v-if="type.toString() === 'color'"
+                                    class="pdp__color-swatch"
+                                    :style="{ backgroundColor: value }"
+                                ></div>
+
+                                <!-- Regular text value -->
+                                <div v-else>
+                                    {{ capitalize(value) }}
+                                </div>
                             </div>
                         </div>
                     </div>
+
+                    <Button :customClass="'button--primary'">
+                        <span class="material-symbols-outlined button button">shopping_cart</span>
+                        <span>Add to Cart</span>
+                    </Button>
+
+                    <p v-if="product.description">{{ product.description }}</p>
                 </div>
             </div>
         </div>
@@ -32,8 +57,10 @@
 </template>
 
 <script setup lang="ts">
+import { capitalize } from '@/utils/text.js'
 import BaseLayout from '../components/layouts/BaseLayout.vue';
 import Price from '../components/products/Price.vue';
+import Button from '../components/general/Button.vue';
 
 interface Product {
     id: string,
@@ -42,6 +69,7 @@ interface Product {
     brand: string
     price: number
     discountedPrice?: number,
+    description?: string,
     properties?: []
 }
 
@@ -76,6 +104,28 @@ defineProps<{
     display: flex;
     flex-direction: column;
     gap: 1rem;
+}
+.pdp__properties {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.pdp__property {
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 0.2rem;
+    column-gap: 1rem;
+}
+.pdp__property-title {
+    flex-basis: 100%;
+    font-size: 1.2rem;
+}
+.pdp__color-swatch {
+    height: 1.5rem;
+    width: 1.5rem;
+    border-radius: 50%;
+    box-shadow: inset 0px 0px 0px 4px var(--white);
+    border: 1px solid var(--border-light);
 }
 
 @media (min-width: 768px) {

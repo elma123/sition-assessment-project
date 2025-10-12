@@ -15,7 +15,7 @@
         box-shadow: none;
     }
     .shopping-cart__icon {
-        color: var(--highlight);
+        color: var(--primary);
     }
     .shopping-cart__text {
         font-size: 0.75rem;

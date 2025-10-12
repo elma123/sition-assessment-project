@@ -9,8 +9,10 @@
 
 :root {
     --white: #fff;
+    --black: #000;
     --base: #F9F9F9;
-    --highlight: #ff7a82;
+    --primary: #fc969c;
+    --secondary: #ffc8cb;
     --border-light: #E4E4E4;
     --white-transparant-80: #FFFFFFCC;
     --alert: #FF3A46;

@@ -53,7 +53,7 @@ import ShoppingCart from '../menu/ShoppingCart.vue';
 }
 @media (max-width: 768px) {
     .header {
-        background: var(--highlight);
+        background: var(--primary);
     }
 }
 </style>

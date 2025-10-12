@@ -7,12 +7,8 @@ use App\Support\ProductService;
 
 // Routes to plp
 Route::get('/', function () {
-    return Inertia::render('Plp');
-})->name('plp');
-
-Route::get('/sale', function () {
-    return Inertia::render('Plp');
-})->name('plp');
+    return Inertia::render('Home');
+})->name('home');
 
 Route::get('/{category}', function ($category) {
     $categories = ProductService::categories(); // Collection
@@ -24,7 +20,23 @@ Route::get('/{category}', function ($category) {
     return Inertia::render('Plp', [
         'category' => $category,
     ]);
-})->name('plp');
+})->name('category');
+
+Route::get('/sale', function () {
+    return Inertia::render('Plp');
+})->name('sale');
+
+Route::get('/blog', function () {
+    return Inertia::render('Standard');
+})->name('blog');
+
+Route::get('/brands', function () {
+    return Inertia::render('Standard');
+})->name('brands');
+
+Route::get('/account', function () {
+    return Inertia::render('Standard');
+})->name('account');
 
 // Get all product data
 Route::get('/proxy/products', function () {

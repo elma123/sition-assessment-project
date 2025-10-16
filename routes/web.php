@@ -9,7 +9,7 @@ use App\Support\ProductService;
  * Create Routes
  */
 
-// Standard
+// Standard pages
 Route::get('/', function () {
     return Inertia::render('Home');
 })->name('home');
@@ -47,6 +47,10 @@ Route::get('/{category}', function ($category) {
     ]);
 })->name('category');
 
+/**
+ * Create Proxy urls to fetch data from external url
+ */
+
 // Get all product data
 Route::get('/proxy/products', function () {
     return response()->json([
@@ -74,6 +78,7 @@ Route::get('/products/{id}', function ($id) {
     ]);
 });
 
+// Get all products from category
 Route::get('/proxy/products/{category}', function ($category) {
     $categories = ProductService::categories(); // Collection
 

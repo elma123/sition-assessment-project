@@ -57,7 +57,7 @@
 </template>
 
 <script setup lang="ts">
-import { capitalize } from '@/utils/text.js'
+import { capitalize } from '@/lib/utils'
 import BaseLayout from '../components/layouts/BaseLayout.vue';
 import Price from '../components/products/Price.vue';
 import Button from '../components/general/Button.vue';

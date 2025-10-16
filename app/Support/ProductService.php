@@ -63,12 +63,12 @@ class ProductService
         return cache()->remember('product_categories', 60, function () {
             $products = self::all();
 
-            return collect($products)
-                ->pluck('categories')
-                ->flatten()
-                ->filter()
-                ->unique()
-                ->values();
+            return collect($products)   // convert to Laravel Collection
+                ->pluck('categories')   // Get only the 'categories' form each product
+                ->flatten()             // Flatten nested arrays into single array
+                ->filter()              // Remove empty or null values
+                ->unique()              // Remove duplicate categories
+                ->values();             // Reset the keys of the collection
         });
     }
 

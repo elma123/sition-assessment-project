@@ -1,8 +1,0 @@
-{
-    "version": 2,
-    "builds": [{ "src": "public/build/**", "use": "@vercel/static" }],
-    "routes": [
-        { "src": "/api/(.*)", "dest": "https://your-backend-domain.com/api/$1" },
-        { "src": "/(.*)", "dest": "public/build/$1" }
-    ]
-}
